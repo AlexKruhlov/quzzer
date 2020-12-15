@@ -4,4 +4,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+    <changeSet id="001" author="Aleks Kruglov" dbms="postgresql">
+        <sqlFile path="sql/00001_Create_quest_answ_tables.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/00001_Create_quest_answ_tables_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
 </databaseChangeLog>
