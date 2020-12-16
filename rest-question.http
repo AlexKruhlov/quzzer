@@ -1,0 +1,30 @@
+### Question: Who is the writer of Atlas Shrugged?
+
+POST http://localhost:8081/question
+Content-Type: application/json
+accept-encoding: gzip, deflate, br
+
+{
+  "id": null,
+  "answerOptionText": "Alexandr Dumas",
+  "questionText": "Who is the writer of Atlas Shrugged?",
+  "questionStrategy": "ONE_ANSWER",
+  "answerOptions": [
+    {
+      "id": null,
+      "answerOptionText": "Alexandr Dumas"
+    },
+    {
+      "id": null,
+      "answerOptionText": "Alexandr Pushkin"
+    },
+    {
+      "id": null,
+      "answerOptionText": "Ayn Rand"
+    },
+    {
+      "id": null,
+      "answerOptionText": "Stephen King"
+    }
+  ]
+}
