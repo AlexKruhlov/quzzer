@@ -1,4 +1,4 @@
-### Question: Who is the writer of Atlas Shrugged?
+### Create question
 
 POST http://localhost:8081/question
 Content-Type: application/json
@@ -28,3 +28,10 @@ accept-encoding: gzip, deflate, br
     }
   ]
 }
+
+
+### Find All Questions
+
+GET http://localhost:8081/question
+Content-Type: application/json
+accept-encoding: gzip, deflate, br

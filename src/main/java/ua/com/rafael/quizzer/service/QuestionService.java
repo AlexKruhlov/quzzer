@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ua.com.rafael.quizzer.db.entity.Question;
 import ua.com.rafael.quizzer.repository.QuestionRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class QuestionService {
@@ -12,5 +14,9 @@ public class QuestionService {
 
     public Question create(final Question question) {
         return questionRepository.saveAndFlush(question);
+    }
+
+    public List<Question> findAll() {
+        return questionRepository.findAll();
     }
 }
