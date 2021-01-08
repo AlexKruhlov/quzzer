@@ -12,11 +12,11 @@ import java.util.List;
 public class QuestionService {
     private final QuestionRepository questionRepository;
 
-    public Question create(final Question question) {
-        return questionRepository.saveAndFlush(question);
-    }
-
     public List<Question> findAll() {
         return questionRepository.findAll();
+    }
+
+    public Question create(final Question question) {
+        return questionRepository.saveAndFlush(question);
     }
 }

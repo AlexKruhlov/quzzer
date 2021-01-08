@@ -26,7 +26,7 @@ public class Answer {
     private Question question;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "answers_answer_options",
+    @JoinTable(name = "answers_answer_options", schema = "quizzer",
             joinColumns = @JoinColumn(name = "answer_id"),
             inverseJoinColumns = @JoinColumn(name = "answer_option_id"))
     private List<AnswerOption> rightAnswerOptions;

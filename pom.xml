@@ -12,7 +12,7 @@
     <artifactId>quizzer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>quizzer</name>
-    <description>Quize Analytic System</description>
+    <description>Quiz Analytic System</description>
 
     <properties>
         <java.version>11</java.version>
@@ -55,6 +55,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

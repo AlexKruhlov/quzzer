@@ -25,7 +25,7 @@ CREATE TABLE questions_answer_options
         CONSTRAINT fko7los2sgwlsw6jsfhwpl7fjud
             REFERENCES questions,
     answer_option_id uuid NOT NULL
-        CONSTRAINT fk6ei0cg1u52nxk31dlfb5fci0p
+        CONSTRAINT qao_answer_option_id_ao
             REFERENCES answer_options
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE answers
         CONSTRAINT answers_pkey
             PRIMARY KEY ,
     question_id uuid
-        CONSTRAINT fk3erw1a3t0r78st8ty27x6v3g1
+        CONSTRAINT a_question_id_q
             REFERENCES questions
 );
 
@@ -46,10 +46,10 @@ ALTER TABLE answers OWNER TO quizzer;
 CREATE TABLE answers_answer_options
 (
     answer_id uuid NOT NULL
-        CONSTRAINT fkit2jx3ksh4wp5vvdvtl4o4lhw
+        CONSTRAINT aao_answer_id_a
             REFERENCES answers,
     answer_option_id uuid NOT NULL
-        CONSTRAINT fkip6qjmr0tno5gykjf9qgxv7mb
+        CONSTRAINT aao_answer_option_id_ao
             REFERENCES answer_options
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE user_answers
             PRIMARY KEY ,
     submitting_time TIMESTAMP,
     question_id uuid
-        CONSTRAINT fk6b46l4bb7a6wfxvmn6l7ig8vo
+        CONSTRAINT ua_question_id_q
             REFERENCES questions
 );
 
@@ -71,10 +71,10 @@ ALTER TABLE user_answers OWNER TO quizzer;
 CREATE TABLE user_answers_answer_options
 (
     user_answer_id uuid NOT NULL
-        CONSTRAINT fk6ry0ehxshu7o7afehx2rj2kmu
+        CONSTRAINT uaao_user_answer_id_ua
             REFERENCES user_answers,
     answer_option_id uuid NOT NULL
-        CONSTRAINT fk20v3e174uflc84f1lg505mgeq
+        CONSTRAINT uaao_answer_option_id_ao
             REFERENCES answer_options
 );
 

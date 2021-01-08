@@ -27,8 +27,8 @@ public class Question {
     @Enumerated(EnumType.STRING)
     private QuestionStrategy questionStrategy;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "questions_answer_options",
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "questions_answer_options", schema = "quizzer",
             joinColumns = {@JoinColumn(name = "question_id")},
             inverseJoinColumns = {@JoinColumn(name = "answer_option_id")}
     )

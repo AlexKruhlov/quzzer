@@ -22,7 +22,7 @@
 ```postgresql
    CREATE DATABASE quizzer;
    \c quizzer
-   CREATE USER ENCRYPTED PASSWORD 'quiz534';
+   CREATE USER quizzer ENCRYPTED PASSWORD 'quiz534';
    ALTER USER quizzer SUPERUSER;
    \c quizzer
    CREATE SCHEMA quizzer;
