@@ -1,8 +1,13 @@
 HELP.md
+.gradle
+gradle
+build/
 target/
 .mvn/
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 mvnw
 mvnw.cmd
 
@@ -27,9 +32,6 @@ mvnw.cmd
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/

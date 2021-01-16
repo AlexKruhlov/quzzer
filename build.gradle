@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'ua.com.rafael'
+version = '0.0.1-SNAPSHOT'
+description = 'quizzer'
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.4.0'
+//    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.liquibase:liquibase-core:3.10.3'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.4.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql:42.2.18'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.h2database:h2:1.4.200'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
