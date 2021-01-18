@@ -10,6 +10,7 @@ import ua.com.rafael.quizzer.db.entity.AnswerOption;
 import ua.com.rafael.quizzer.db.entity.Question;
 import ua.com.rafael.quizzer.repository.QuestionRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,13 +42,13 @@ class QuestionControllerIntegrationTest extends IntegrationTest {
 
     @Test
     void create_shouldCreateNewQuestion() {
+        List<AnswerOption> answerOptions = new ArrayList<>();
+        answerOptions.add(AnswerOption.builder().answerOptionText("Answer option 1").build());
+        answerOptions.add(AnswerOption.builder().answerOptionText("Answer option 1").build());
         final Question newQuestion = Question.builder()
                 .questionText("Question 1")
                 .questionStrategy(ONE_ANSWER)
-                .answerOptions(List.of(
-                        AnswerOption.builder().answerOptionText("Answer option 1").build(),
-                        AnswerOption.builder().answerOptionText("Answer option 1").build()
-                )).build();
+                .answerOptions(answerOptions).build();
 
         final ResponseEntity<Question> postResponse = testRestTemplate.postForEntity(QUESTION_PATH,
                 newQuestion, Question.class);

@@ -7,7 +7,7 @@ plugins {
 group = 'ua.com.rafael'
 version = '0.0.1-SNAPSHOT'
 description = 'quizzer'
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 configurations {
     compileOnly {
