@@ -1,4 +1,4 @@
-# Back-end
+# Back-end (Ubuntu 20.04.1)
 
 ## Database Installing
 
@@ -27,6 +27,80 @@
    \c quizzer
    CREATE SCHEMA quizzer;
 ```
+
+## Jenkins Installing
+1. Add the repository key to system:
+```bash
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+```
+
+2. Add Debian packages repository address in the server's `source.list`:
+```bash
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+```
+
+3. Update apt:
+```bash
+sudo apt update
+```
+
+4. Install Jenkins and its dependencies:
+```bash
+sudo apt install jenkins
+```
+
+5.Run Jenkins:
+```bash
+sudo systemctl start jenkins
+```
+
+6. Tune the Brandmauer:
+```bash
+sudo ufw allow 8080
+sudo ufw allow OpenSSH
+sudo ufw enable
+sudo ufw status
+````
+
+Possible output result:
+```bash
+Output
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+```
+
+7. Open Jenkins via browser:
+```bash
+http://localhost:8080/
+```
+**Unlock Jenkins** window should be shown.
+
+8. Get the password (32 symbols) to unlock Jenkins:
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+9. Copy password and paste it to window's field **Administrator password** -> **Continue** 
+   
+10. Install **Install suggested plugins** 
+
+11. Create first admin user and finish installing process
+
+
+
+
+
+
+
+
+
+
 
 # Front-end
 
