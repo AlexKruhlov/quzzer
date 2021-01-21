@@ -1,16 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-$regex = /\[ref: (\d+)\]/
-
-# enforced custom commit message format
-def check_message_format
-  missed_revs = `git rev-list {$oldrev}..#{$newrev}`.split("\n")
-  missed_revs.each do |rev|
-    message = `git cat-file commit {rev} | sed '1,/^$/d'`
-    if !$regex.match(message)
-      puts "[POLICY] Your message is not formatted correctly"
-      exit 1
-    end
-  end
-end
-check_message_format
+message_pattern="\[[[:digit:]]+\] .+"
+commit_msg_head=$(head -n 1 "$1")
+if [[ "$commit_msg_head" =~ $message_pattern ]]
+then
+  exit 0
+else
+  echo "[POLICY] Your message is not formatted correctly"
+  echo "Right example: [1256] Add new changes"
+  exit 1
+fi
