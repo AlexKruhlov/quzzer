@@ -125,3 +125,5 @@ Add to `~/.gitconfig` file following settings, specifying your own user info:
   autocrlf = input
   hooksPath = ./.
 ```
+
+## [Installing bash-it](https://github.com/Bash-it/bash-it#installation)
