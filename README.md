@@ -2,6 +2,7 @@
 
 ## Database Installing
 
+`Linux`
 1. PostgreSQL is used for this project. It's run via docker container. Please, install docker container, pull
    postgres [docker image](https://hub.docker.com/_/postgres)
    and run the docker using following settings:
@@ -9,6 +10,8 @@
 ```bash
    sudo docker container run -p 5432:5432 -e POSTGRES_PASSWORD=postgres --name local_psql postgres
 ```
+
+`macOS` Install Homebrew and install [postgres](https://formulae.brew.sh/formula/postgresql)
 
 2. Open bash terminal connect to container **psql**:
 
@@ -32,6 +35,7 @@ CREATE SCHEMA quizzer;
 
 ## Jenkins Installing
 
+`Linux`
 1. Add the repository key to system:
 
 ```bash
@@ -56,10 +60,21 @@ sudo apt update
 sudo apt install jenkins
 ```
 
+`macOS`
+```bash
+brew install jenkins-lts
+```
+
 5.Run Jenkins:
 
+`Linux`
 ```bash
 sudo systemctl start jenkins
+```
+
+`macOS`
+```bash
+brew services start jenkins-lts
 ```
 
 6. Tune the Brandmauer:
@@ -101,6 +116,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 10. Choose **Install suggested plugins**
 
 11. Create first admin user and finish installing process
+
+12. Follow [Jenkins manual](https://www.jenkins.io/doc/pipeline/tour/getting-started/)
+to integrate project with Jenkins
+
 
 ## Installing Git
 Add to `~/.gitconfig` file following settings, specifying your own user info:
